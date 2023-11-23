@@ -1,23 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Login from '../components/pages/Login.vue'
+//경로 별칭: @은 'src/'경로를 의미함
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+    history: createWebHistory(),
+    routes: [
+        { path: '/', component: Login },
+        // { path: '/about', component: About },
+        // { path: '/members', component: Members },
 
-export default router
+        //동적라우팅 방법
+        // {path: '/members/:id', component: MemberInfo}
+        // {path: '/members/1', component: MemberAladin},
+        // {path: '/members/2', component: MemberJasmin},
+        // {path: '/members/3', component: MemberGenie}
+        //멤버별로 개별설정하면 힘드니까 동적라우팅 이용
+    ]
+})
+export default router;
